@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clone Twitter</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+ <body>
+ <!-- start side bar -->
+    <div class="sidebar">
+        <i class="fab fa-twitter"></i>
+        <div class="sidebarOption active">
+            <i class="fas fa-home matrial-icons"></i>
+            <h2>home</h2>
+        </div>
+        <div class="sidebarOption">
+            <i class="fas fa-search matrial-icons"></i>
+            <h2>Explore</h2>
+        </div>
+        <div class="sidebarOption">
+            <i class="far fa-bell matrial-icons"></i>
+            <h2>Notifications</h2>
+        </div>
+        <div class="sidebarOption">
+            <i class="far fa-envelope matrial-icons"></i>
+            <h2>Message</h2>
+        </div>
+        <div class="sidebarOption">
+            <i class="far fa-bookmark matrial-icons"></i>
+            <h2>Bookmarks</h2>
+        </div>
+        <div class="sidebarOption">
+            <i class="far fa-list-alt matrial-icons"></i>
+            <h2>Lists</h2>
+        </div>
+        <div class="sidebarOption">
+            <i class="far fa-user-circle matrial-icons"></i>
+            <h2>Profile</h2>
+        </div>
+        <div class="sidebarOption">
+            <i class="far fa-caret-square-down matrial-icons"></i>
+            <h2>More</h2>
+        </div>
+        <button class="sidebar-tweet"></button>
+    </div>
+<!-- end side bar -->
+
+<!-- feed start -->
+<div class="feed_header">
+    <div class="feed__header">
+       <h2>Home</h2>
+    </div>
+    <div class="tweetbox">
+        <form>
+            <div class="tweetbox__input">
+                <img src="img/avtar-twiiter.jpg" alt="avtar">
+                <input type="text" placeholder="whats happinng" name="copyTxt">
+            </div>
+            <button class="copyBtn tweetBox__tweetButton">copy Text</button>
+        </form>
+    </div>
+    </div>
+
+<!-- feed end -->
+<main class="container">
+    <div class="todoWrapper">
+<ul class="todo-list">
+    <li class="todo-item done">
+        <button class="btn btn-status">
+            <span class="visually-hidden">Task Status</span>
+        </button>
+        <p></p>
+        <button class="btn btn-remove">
+            <span class="visually-hidden">Remove task</span>
+            <i class="far fa-heart"></i>
+        </button>
+    </li>
+    <li class="todo-item">
+        <button class="btn btn-status">
+            <span class="visually-hidden">Task Status</span>
+        </button>
+        <p></p>
+        <button class="btn btn-remove">
+            <span class="visually-hidden">Remove task</span>
+            <i class="far fa-heart"></i>
+        </button>
+    </li>
+    <li class="todo-item">
+        <button class="btn btn-status">
+            <span class="visually-hidden">Task Status</span>
+        </button>
+        <p></p>
+        <button class="btn btn-remove">
+            <span class="visually-hidden">Remove task</span>
+            <i class="far fa-heart"></i>
+        </button>
+    </li>
+    <li class="todo-item">
+        <button class="btn btn-status">
+            <span class="visually-hidden">Task Status</span>
+        </button>
+        <p></p>
+        <button class="btn btn-remove">
+            <span class="visually-hidden">Remove task</span>
+            <i class="far fa-heart"></i>
+        </button>
+    </li>
+</ul>
+    </div>
+</main>
+
+<script>
+    const copyTxt = document.querySelector("input[name=copyTxt]");
+    // const finalTxt = document.querySelector("textarea[name=finalTxt]");
+    const task = document.querySelector('#todoItem');
+    const todoList = document.querySelector('.todo-list');
+    const  copyBtn = document.querySelector(".copyBtn");
+    // const  output = document.querySelector(".output");
+
+
+    function Text(e){
+        e.preventDefault()
+        let temp = copyTxt.value;
+        copytoClipBoard(temp);
+    }
+
+    function  copytoClipBoard(str){
+        const  input = document.createElement("input");
+        input.value = str;
+        document.body.appendChild(input);
+        todoList.innerHTML = "<h3>Tweets </h3>"+input.value;
+        console.log(input);
+    }
+    copyBtn.addEventListener("click",Text);
+
+</script>
+<!--<script src="js/main.js"></script>-->
+</body>
+</html>
